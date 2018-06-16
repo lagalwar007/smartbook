@@ -1,6 +1,6 @@
 {
   "name": "Smartbook",
-  "app_id": "",
+  "app_id": "cde8e5ab",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

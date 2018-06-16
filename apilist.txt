@@ -1,0 +1,11 @@
+Api list:-
+
+1) Configuration:-
+https://api.themoviedb.org/3/configuration?api_key=<<api_key>>
+
+2) Popular movies:-
+https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>
+
+3) Upcomming movies:-
+https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>
+
