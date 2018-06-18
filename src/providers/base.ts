@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptionsArgs } from '@angular/http';
+import { Response, RequestOptionsArgs, Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-
+@Injectable()
 export class Base {
   constructor(public http: Http) {
     console.log('base');  
   }
 
   protected postData<T>(url: string, body: any, options?: RequestOptionsArgs): Observable<T> {
-    return this.http.post(url, body, options)
-      .map(res => this.parseResponse(res))
+    return this.http.post(url, body)
+      .map(res => res)
       .catch(this.handleError);
   }
 
   protected getData<T>(url: string, options?: RequestOptionsArgs): Observable<T> {
-    return this.http.get(url, options)
-      .map(res => this.parseResponse(res))
+    return this.http.get(url)
+      .map(res => res)
       .catch(this.handleError)
   }
 

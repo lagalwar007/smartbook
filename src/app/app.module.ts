@@ -1,3 +1,4 @@
+import { IonicStorageModule } from '@ionic/storage';
 import { MoviesPage } from '../pages/movies/movies';
 import { ShowsPage } from '../pages/shows/shows';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -13,6 +14,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersPage } from '../pages/users/users';
 import { ApiProvider } from '../providers/api/api';
 import { MoviesProvider } from '../providers/movies/movies';
+import { HelperProvider } from '../providers/helper/helper';
+import { HttpModule } from '@angular/http';
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,14 @@ import { MoviesProvider } from '../providers/movies/movies';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({
+      name: '__mydb',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
+
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,6 +59,7 @@ import { MoviesProvider } from '../providers/movies/movies';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
     MoviesProvider,
+    HelperProvider,
   ]
 })
 export class AppModule {}

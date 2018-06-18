@@ -6,13 +6,41 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Movies</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+    <ion-card *ngFor="let movies of upcommingmovies">
+      <img src="{{ movies.img }}" />
+      <ion-card-content>
+        <ion-card-title>
+          {{ movies.title}}
+        </ion-card-title>
+        <h2 text-left> {{ movies.date}}</h2>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="heart-outline"></ion-icon>
+            <div>{{ movies.vote}} Votes</div>
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button icon-start clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button round color="primary">
+            <div color="light">Book</div>
+            <ion-icon name="arrow-round-forward"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
 </ion-content>

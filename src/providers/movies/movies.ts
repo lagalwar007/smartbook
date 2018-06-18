@@ -1,13 +1,8 @@
 import { Http } from '@angular/http';
-
-
-import { Base } from '../base';
 import { Injectable } from '@angular/core';
-
 import { configuration } from './../models/configuration.models';
 import { Observable } from 'rxjs/Observable';
-
-
+import { Base } from '../base';
 
 
 @Injectable()
@@ -24,13 +19,19 @@ export class MoviesProvider extends Base{
     console.log('Hello MoviesProvider Provider');
   }
 
-  getConfiguration():Observable<configuration>{
-    return this.getData<any>(this.concatwithtoken(this.api_configurl)).map( (res) => {
-      return res;
+  getConfiguration():Observable<any>{
+    return this.getData<any>(this.concatwithtoken(this.api_configurl)).map( (res:Response) => {
+       return res.json();    
+    })
+    //return this.http.get(this.concatwithtoken(this.api_configurl));
+  }
+  getUpcommingMovies(){
+    return this.getData<any>(this.concatwithtoken(this.upcommingmovies)).map( (response) => {
+      return response.json();
     })
   }
   private concatwithtoken(url:String=''){
-   return url.concat('?api_key'+this.apiToken);
+   return url.concat('?api_key='+this.apiToken);
   }
 
 }
