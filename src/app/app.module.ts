@@ -16,7 +16,7 @@ import { ApiProvider } from '../providers/api/api';
 import { MoviesProvider } from '../providers/movies/movies';
 import { HelperProvider } from '../providers/helper/helper';
 import { HttpModule } from '@angular/http';
-
+import { DetailsPage } from '../pages/details/details';
 
 
 
@@ -29,7 +29,8 @@ import { HttpModule } from '@angular/http';
     TabsPage,
     ShowsPage,
     MoviesPage,
-    UsersPage
+    UsersPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,9 @@ import { HttpModule } from '@angular/http';
     TabsPage,
     MoviesPage,
     ShowsPage,
-    UsersPage
+    UsersPage,
+    DetailsPage
+
   ],
   providers: [
     StatusBar,
