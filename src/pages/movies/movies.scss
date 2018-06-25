@@ -2,5 +2,35 @@ ion-header {
   background-color: color($colors, primary, base)
 }
 img{
-  height: 350px;
+  height: auto;
+}
+
+ion-content{
+  ion-card{
+  background: linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%)!important;
+  border-radius: 3% !important;
+  color: #fff;
+  font-weight: lighter;
+  font-size:18px;
+  font-family: 'Eater', cursive;
+  }
+  
+  ion-card-content{
+    ion-card-title{
+      color: #fff !important;
+    }
+  }
+  ion-row{
+    color:#fff;
+    ion-col{
+      button{
+        ion-icon{
+          color:#fff;
+        }
+        div{
+          color:#fff;
+        }
+      }
+    }
+  }
 }

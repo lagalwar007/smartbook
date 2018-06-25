@@ -1,0 +1,24 @@
+page-details {
+  .background{
+    height : 100%;
+    width  :  100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 1.48%, rgba(3, 62, 119, 0.68) 12.52%, rgb(210, 17, 83) 89.52%);
+  }
+  ion-icon{
+    color:#fff;
+    font-size: 3.2em;
+    margin-left: 15px;
+  }
+  ion-grid ion-row ion-col{
+    color: #fff;
+    font-family: -appion-grid ion-row ion-colle-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+  ion-grid ion-row ion-col h2{
+    font-family: 'Eater', cursive;
+    font-size :1.6em;
+    font-weight: lighter;
+  }
+  ion-grid ion-row ion-col ion-card{
+      
+  }
+}

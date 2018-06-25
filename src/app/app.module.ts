@@ -1,6 +1,8 @@
+
 import { IonicStorageModule } from '@ionic/storage';
 import { MoviesPage } from '../pages/movies/movies';
 import { ShowsPage } from '../pages/shows/shows';
+import { DetailsPage } from './../pages/details/details';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -16,10 +18,6 @@ import { ApiProvider } from '../providers/api/api';
 import { MoviesProvider } from '../providers/movies/movies';
 import { HelperProvider } from '../providers/helper/helper';
 import { HttpModule } from '@angular/http';
-
-
-
-
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +27,8 @@ import { HttpModule } from '@angular/http';
     TabsPage,
     ShowsPage,
     MoviesPage,
-    UsersPage
+    UsersPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +50,8 @@ import { HttpModule } from '@angular/http';
     TabsPage,
     MoviesPage,
     ShowsPage,
-    UsersPage
+    UsersPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

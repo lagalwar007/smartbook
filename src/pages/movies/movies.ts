@@ -1,8 +1,10 @@
+import { DetailsPage } from './../details/details';
 import { Observable } from 'rxjs/Observable';
 import { MoviesProvider } from './../../providers/movies/movies';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+
 
 /**
  * Generated class for the MoviesPage page.
@@ -27,32 +29,40 @@ export class MoviesPage {
     public movies:MoviesProvider,
     public storage: Storage){
     this.storage.get('img_base').then( (val) => {
-      this.baseurl = val;
+      if(!val){
+        this.movies.getConfiguration().subscribe((res) => {
+          this.storage.set('img_base', res.images.base_url).then((res) => {
+            this.baseurl = res;
+          })
+        })
+      }else{
+        this.baseurl = val;
+      }
     }).catch( (err) => {
-     this.movies.getConfiguration().subscribe( (res) => {
-       this.storage.set('img_base',res.images.base_url).then( (res) => {
-         this.baseurl = res;
-       })
-     })
+     console.log('get base_url',err)
     }); 
-    this.storage.get('upcommingmovies').then( (movies:Array<any>) => {
+    this.storage.get('upcommingmovies').then( (movies) => {
       if(!movies){
         this.movies.getUpcommingMovies().subscribe((res) => {
-          this.upcommingmovies = this.moviesArrange(res);
-          this.storage.set('upcommingmovies', this.upcommingmovies);
+          console.log('storage upcommingmovies not found',res)
+          this.upcommingmovies = this.moviesArrange(res.results);
+          this.storage.set('upcommingmovies', res);
         }, (error) => {
           console.log(error);
         })
       }else{
-        console.log('mov',this.moviesArrange(movies));
-        this.upcommingmovies = this.moviesArrange(movies);
+        console.log('storage upcommingmovies found',this.moviesArrange(movies));
+        this.upcommingmovies = this.moviesArrange(movies.results);
       }
      
     }).catch( (err) => {
       console.log('movies not found',err);
     })
   }
-  
+  getMoviesDetail(movieId: String) {
+    console.log('movie',movieId);
+    this.navCtrl.push(DetailsPage,{ id: movieId },{animate: true, direction: 'forward', animation: 'wp-transition', duration: 500});
+  }
   public moviesArrange(Arr:Array<any>){
     return Arr.map((val) => {
       return {

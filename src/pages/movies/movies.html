@@ -4,17 +4,9 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar color="primary">
-    <ion-title>Movies</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
-    <ion-card *ngFor="let movies of upcommingmovies">
+<ion-content class="bg">
+  <ion-grid>
+    <ion-card *ngFor="let movies of upcommingmovies" (click)="getMoviesDetail(movies.id);">
       <img src="{{ movies.img }}" />
       <ion-card-content>
         <ion-card-title>
@@ -35,12 +27,7 @@
             <div>4 Comments</div>
           </button>
         </ion-col>
-        <ion-col text-right>
-          <button ion-button round color="primary">
-            <div color="light">Book</div>
-            <ion-icon name="arrow-round-forward"></ion-icon>
-          </button>
-        </ion-col>
       </ion-row>
     </ion-card>
+    </ion-grid>
 </ion-content>

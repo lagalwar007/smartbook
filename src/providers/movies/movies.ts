@@ -13,6 +13,7 @@ export class MoviesProvider extends Base{
   private api_configurl = this.baseurl+'configuration';
   private popularmovies = this.baseurl+'movie/popular/';
   private upcommingmovies = this.baseurl+'movie/upcoming/';
+  private moviesdetail = this.baseurl + 'movie/';
 
   constructor(public http: Http) {
     super(http);
@@ -23,12 +24,23 @@ export class MoviesProvider extends Base{
     return this.getData<any>(this.concatwithtoken(this.api_configurl)).map( (res:Response) => {
        return res.json();    
     })
-    //return this.http.get(this.concatwithtoken(this.api_configurl));
   }
   getUpcommingMovies(){
     return this.getData<any>(this.concatwithtoken(this.upcommingmovies)).map( (response) => {
       return response.json();
     })
+  }
+  getMoviesDetails(id: String, filters?: Array<any>) {
+    let url = this.concatwithtoken(this.moviesdetail + id);
+    if (typeof filters != 'undefined') {
+      url = this.addFilters(url, filters);
+    }
+    return this.getData<any>(url).map((response) => {
+      return response.json();
+    })
+  }
+  private addFilters(url: String, filter: Array<any>) {
+    return url + '&append_to_response=' + filter.join(',');
   }
   private concatwithtoken(url:String=''){
    return url.concat('?api_key='+this.apiToken);
