@@ -2,7 +2,6 @@ ion-header {
   background-color: color($colors, primary, base)
 }
 img{
-<<<<<<< HEAD
   height: auto;
 }
 
@@ -30,64 +29,8 @@ ion-content{
         }
         div{
           color:#fff;
-=======
-  height: 350px;
-}
-
-
-  page-home {
-    .main-content {
-      background-color: map-get($colors, dark);
-      box-shadow: 0px -1px 13px 1px rgba(0, 0, 0, 0.3);
-    }
-    .scroll-content {
-      padding-top: 0 !important;
-    }
-    ion-header {
-      backdrop-filter: blur(8px);
-    }
-    ion-navbar {
-      opacity: 0.4;
-      box-shadow: 0px 1px 13px 1px rgba(0, 0, 0, 0.77);
-    }
-    ion-segment {
-      padding: 0px 12px;
-      opacity: 0.7;
-      position: relative;
-      top: -50px;
-    }
-    ion-segment-button {
-      border-color: map-get($colors, primary) !important;
-      color: #fff !important;
-    }
-    ion-card {
-      background-color: #fff;
-      width: 100%;
-      margin: 0;
-      margin-bottom: 25px;
-      position: relative;
-      top: -30px;
-    }
-    ion-card:last-of-type {
-      margin-bottom: 0 !important;
-    }
-    ion-item {
-      background-color: #fff;
-    }
-  }
-
-  ion-card{
-    ion-row{
-      ion-col{
-        h3{
-          color: map-get($colors,light) !important;
-
->>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
         }
       }
     }
   }
-<<<<<<< HEAD
 }
-=======
->>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
