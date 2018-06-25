@@ -4,29 +4,65 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+<<<<<<< HEAD
 <ion-content class="bg">
   <ion-grid>
     <ion-card *ngFor="let movies of upcommingmovies" (click)="getMoviesDetail(movies.id);">
+=======
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Movies</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content fullscreen>
+<!-- Segment buttons with text -->
+<div padding>
+<ion-segment [(ngModel)]="catmovies" color="primary">
+    <ion-segment-button value="upcomming" (ionSelect)="upcommingMovies()">
+      Upcomming
+    </ion-segment-button>
+    <ion-segment-button value="popular" (ionSelect)="popularMovies()">
+      Popular
+    </ion-segment-button>
+  </ion-segment>                                                                                                                                                                                                                                                                                                                                                                                      
+</div>
+
+
+<ion-card *ngFor="let movies of mymovies" color="primary" (click)="getMoviesDetail(movies.id);">
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
       <img src="{{ movies.img }}" />
-      <ion-card-content>
-        <ion-card-title>
+      <ion-card-content color="light">
+        <ion-card-title color="light">
           {{ movies.title}}
         </ion-card-title>
-        <h2 text-left> {{ movies.date}}</h2>
+        <h2 text-left color="light"> {{ movies.date}}</h2>
       </ion-card-content>
-      <ion-row no-padding>
+      <ion-row no-padding>                                                                                                                                                                                                    
         <ion-col>
           <button ion-button icon-start clear small>
-            <ion-icon name="heart-outline"></ion-icon>
-            <div>{{ movies.vote}} Votes</div>
+            <ion-icon name="heart-outline" color="light"></ion-icon>
+            <h3 color="light">{{ movies.vote}} Votes</h3>
           </button>
         </ion-col>
         <ion-col text-center>
           <button ion-button icon-start clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
+            <ion-icon name="text" color="light"></ion-icon>
+            <h3 color="light">4 Comments</h3>
           </button>
         </ion-col>
+<<<<<<< HEAD
+=======
+        <ion-col text-right>
+          <button ion-button round color="light">
+            <div color="primary">Book</div>
+            <ion-icon name="arrow-round-forward" color="light"></ion-icon>
+          </button>
+        </ion-col>
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
       </ion-row>
     </ion-card>
     </ion-grid>

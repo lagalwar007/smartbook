@@ -13,8 +13,12 @@ export class MoviesProvider extends Base{
   private api_configurl = this.baseurl+'configuration';
   private popularmovies = this.baseurl+'movie/popular/';
   private upcommingmovies = this.baseurl+'movie/upcoming/';
+<<<<<<< HEAD
   private moviesdetail = this.baseurl + 'movie/';
 
+=======
+  private moviesdetail   =  this.baseurl+'movie/'
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
   constructor(public http: Http) {
     super(http);
     console.log('Hello MoviesProvider Provider');
@@ -30,20 +34,42 @@ export class MoviesProvider extends Base{
       return response.json();
     })
   }
+<<<<<<< HEAD
   getMoviesDetails(id: String, filters?: Array<any>) {
     let url = this.concatwithtoken(this.moviesdetail + id);
     if (typeof filters != 'undefined') {
       url = this.addFilters(url, filters);
+=======
+  getPopularMovies(){
+    return this.getData<any>(this.concatwithtoken(this.popularmovies)).map((response) => {
+      return response.json();
+    })
+  }
+  getMoviesDetails(id:String,filters?:Array<any>){
+    let url = this.concatwithtoken(this.moviesdetail + id);
+    if(typeof filters!='undefined'){
+      url = this.addFilters(url,filters);
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
     }
     return this.getData<any>(url).map((response) => {
       return response.json();
     })
   }
+<<<<<<< HEAD
   private addFilters(url: String, filter: Array<any>) {
     return url + '&append_to_response=' + filter.join(',');
   }
+=======
+
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
   private concatwithtoken(url:String=''){
    return url.concat('?api_key='+this.apiToken);
   }
 
+  private addFilters(url:String,filter:Array<any>){
+    return url +'&append_to_response='+filter.join(',');
+  }
+  private addquerystring(url:String,query:Array<any>){
+
+  }
 }

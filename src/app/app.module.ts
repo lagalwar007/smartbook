@@ -18,6 +18,13 @@ import { ApiProvider } from '../providers/api/api';
 import { MoviesProvider } from '../providers/movies/movies';
 import { HelperProvider } from '../providers/helper/helper';
 import { HttpModule } from '@angular/http';
+<<<<<<< HEAD
+=======
+import { DetailsPage } from '../pages/details/details';
+
+
+
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
 @NgModule({
   declarations: [
     MyApp,
@@ -52,6 +59,10 @@ import { HttpModule } from '@angular/http';
     ShowsPage,
     UsersPage,
     DetailsPage
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
   ],
   providers: [
     StatusBar,

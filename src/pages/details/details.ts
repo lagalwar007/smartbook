@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 import { MoviesPage } from './../movies/movies';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MoviesProvider } from '../../providers/movies/movies';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs/Observable';
+=======
+import { MoviesProvider } from './../../providers/movies/movies';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
 
 /**
  * Generated class for the DetailsPage page.
@@ -18,6 +24,7 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'details.html',
 })
 export class DetailsPage {
+<<<<<<< HEAD
   public movieselected;
   public baseurl;
   public img_size = 'w500';
@@ -73,6 +80,21 @@ export class DetailsPage {
         val.id==id;
       })
     }, error => console.log('upcom', error))
+=======
+  
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              private movies:MoviesProvider) {
+    let movieid = navParams.get('id');
+    this.movies.getMoviesDetails(movieid,['videos']).subscribe( (movies) => {
+      console.log('movies',movies);
+
+    },(error) => console.log(error));
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad DetailsPage');
+>>>>>>> 7cb88c50b9367b276d4c8f20da0553462d5032b0
   }
 
 }

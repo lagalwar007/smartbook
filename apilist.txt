@@ -9,3 +9,6 @@ https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>
 3) Upcomming movies:-
 https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>
 
+4) Movies details:-
+https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+
